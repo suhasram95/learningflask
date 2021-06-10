@@ -21,4 +21,3 @@ class Book:
 
 book = Book.hardcover("Harry Potter", "50g")
 print (book)
-
