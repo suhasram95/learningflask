@@ -1,5 +1,5 @@
 from enum import Enum
-class Types(Enum):
+class BookTypes(Enum):
     HARDCOVER = "hardcover"
     PAPERBACK = "paperback"
 class Book:
@@ -10,6 +10,15 @@ class Book:
     
     def __repr__(self):
         return f"<Book {self.name}, {self.book_type}, weighing {self.weight}"
+    
+    @classmethod
+    def hardcover(cls, name, page_weight):
+        return Book(name, BookTypes.HARDCOVER.value, page_weight)
+    
+    @classmethod
+    def paperback(cls, name, page_weight):
+        return Book(name, BookTypes.PAPERBACK.value, page_weight)
 
-book = Book("Harry Potter", Types.HARDCOVER.value, "50g")
+book = Book.hardcover("Harry Potter", "50g")
 print (book)
+
