@@ -1,8 +1,17 @@
 from flask import Flask
 import os
 app = Flask(__name__)
-
-hello = "Hello, world! This is from the program I am using flask"
+store =[
+    {
+        'name': 'My Wonderful Store',
+        'items':[
+            {
+                'name': 'My Item',
+                'price': 15.99
+            }
+        ]
+    }
+]
 @app.route('/store', methods=['POST', 'GET'])
 def create_store():
     pass
