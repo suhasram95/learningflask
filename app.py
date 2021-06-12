@@ -8,9 +8,15 @@ def create_store():
     pass
 
 @app.route('/store/<string:name>', methods=['GET'])
-def get_store():
+def get_store(name):
     pass
 
-def 
+@app.route('/store/<string:name>/item', methods=['POST'])
+def create_item_in_store(name):
+    pass
+
+@app.route('/store/<string:name>/item')
+def get_items_in_store(name):
+    pass
 
 app.run(port=5000)
