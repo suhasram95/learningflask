@@ -1,7 +1,7 @@
 from flask import Flask
 import os
 app = Flask(__name__)
-store =[
+stores =[
     {
         'name': 'My Wonderful Store',
         'items':[
