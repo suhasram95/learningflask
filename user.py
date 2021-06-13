@@ -1,12 +1,14 @@
 import sqlite3
 from flask_restful import Resource, reqparse
+
+
 class User:
     def __init__(self, _id, username, password):
         self.id = _id
         self.username = username
         self.password = password
 
-    @classmethod    
+    @classmethod
     def find_by_username(cls, username):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
@@ -21,7 +23,7 @@ class User:
         connection.close()
         return user
 
-    @classmethod    
+    @classmethod
     def find_by_id(cls, id):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
@@ -36,20 +38,25 @@ class User:
         connection.close()
         return user
 
+
 class UserRegister(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('username',
-        type = str,
-        required = True,
-        help = "Username Cannot be blank!")
+                        type=str,
+                        required=True,
+                        help="Username Cannot be blank!")
     parser.add_argument(
         'password',
-        type = str,
-        required = True,
-        help = "Please enter a password!"
+        type=str,
+        required=True,
+        help="Please enter a password!"
     )
+
     def post(self):
         data = UserRegister.parser.parse_args()
+        if User.find_by_username(data['username']):
+            return {'message': 'A User with that username already exists'}, 409
+
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
