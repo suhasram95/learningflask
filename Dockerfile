@@ -17,6 +17,6 @@ COPY . /app
 
 EXPOSE 5000
 
-RUN chown -R usr
+RUN chown -R usr:usr /usr/sbin/adduser
 
 CMD ["python3", "run.py"]
