@@ -3,5 +3,5 @@ flask-rest-api==0.17.1
 Flask-RESTful==0.3.9
 Flask-JWT==0.3.2
 Flask-SQLAlchemy==2.5.1
-uWSGI==2.0.19.1
 psycopg2==2.9.1
+uWSGI==2.0.19.1
