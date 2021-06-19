@@ -17,6 +17,6 @@ COPY . /app
 
 EXPOSE 5000
 
-RUN chown usr
+RUN chown -R usr
 
 CMD ["python3", "run.py"]
