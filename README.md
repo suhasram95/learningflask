@@ -1,10 +1,10 @@
-# my awesome REST API
+# Store REST API
 
-## Installatioin
+## Installation
 
 ```
 pip install Flask
-python appi.py
+python app.py
 ```
 
 ## Description
