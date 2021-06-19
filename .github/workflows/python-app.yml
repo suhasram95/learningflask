@@ -39,10 +39,6 @@ jobs:
         python3 -m pip install --upgrade pip
         python3 -m pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Run Migrations
-      run: python3 firstproject/manage.py migrate
-    - name: Run tests
-      run: python3 firstproject/manage.py test
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -72,7 +68,7 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/firstproject:b${{ github.run_number }}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/storeapi:b${{ github.run_number }}
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
